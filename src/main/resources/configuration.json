@@ -1,0 +1,10 @@
+{
+  "orderSleep": 1000,
+  "ingestionRate": 2,
+  "ingestionLimit": 10,
+  "capacity": 10,
+  "overflowCapacity": 15,
+  "decayRate": 1,
+  "overflowDecayRate": 2,
+  "nThreads": 16
+}
