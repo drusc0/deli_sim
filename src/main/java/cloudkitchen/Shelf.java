@@ -1,5 +1,6 @@
 package cloudkitchen;
 
+import cloudkitchen.constants.DeliverySimConstants;
 import com.google.common.annotations.VisibleForTesting;
 import lombok.Data;
 import model.Order;
@@ -16,8 +17,8 @@ public abstract class Shelf {
 
     public Shelf(final String temperature) {
         this.temperature = temperature;
-        this.capacity = 10;
-        this.decayModifier = 1;
+        this.capacity = DeliverySimConstants.SHELF_DEFAULT_CAPACITY;
+        this.decayModifier = DeliverySimConstants.SHELF_DEFAULT_DECAY_MODIFIER;
         this.priorityQueue = new PriorityQueue<>(this.capacity, new OrderComparator());
     }
 
@@ -69,7 +70,7 @@ public abstract class Shelf {
         while(!priorityQueue.isEmpty()) {
             float value = priorityQueue.peek().getOrderValue(decayModifier);
 
-            if (value <= 0.0) {
+            if (value <= DeliverySimConstants.DECAY_THRESHOLD) {
                 Order toBeRemoved = priorityQueue.poll();
                 System.out.println("Disposing of order: " + toBeRemoved.getName() +
                         " due to shelf life expired with value: " + value);

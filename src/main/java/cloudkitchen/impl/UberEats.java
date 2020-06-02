@@ -2,10 +2,9 @@ package cloudkitchen.impl;
 
 import cloudkitchen.Kitchen;
 import cloudkitchen.Courier;
+import cloudkitchen.constants.DeliverySimConstants;
 import model.Order;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.*;
@@ -34,7 +33,7 @@ public class UberEats extends Courier {
     @Override
     public void dispatch(final List<Order> orderList) {
         orderList.forEach(order -> {
-            double secs = getRandomInt(2, 6);
+            double secs = getRandomInt(DeliverySimConstants.MIN_WAIT_TIME, DeliverySimConstants.MAX_WAIT_TIME);
             PickUpTask task = new PickUpTask("Pickup-driver-" + order.getId(), secs, order, this.kitchen);
             this.taskList.add(task);
         });
