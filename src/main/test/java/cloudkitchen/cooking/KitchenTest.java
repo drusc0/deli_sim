@@ -1,5 +1,7 @@
-package cloudkitchen;
+package cloudkitchen.cooking;
 
+import cloudkitchen.cooking.Kitchen;
+import cloudkitchen.cooking.Shelf;
 import com.google.common.collect.ImmutableList;
 import model.Order;
 import org.junit.Before;

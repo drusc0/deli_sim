@@ -1,10 +1,7 @@
-package cloudkitchen.impl;
+package cloudkitchen.delivery.impl;
 
-import cloudkitchen.Courier;
-import cloudkitchen.Kitchen;
-import cloudkitchen.impl.UberEats;
+import cloudkitchen.cooking.Kitchen;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.Futures;
 import lombok.SneakyThrows;
 import model.Order;
@@ -14,7 +11,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.stubbing.Answer;
 
 import java.time.Instant;
 import java.util.List;

@@ -1,6 +1,6 @@
-package cloudkitchen.impl;
+package cloudkitchen.cooking.impl;
 
-import cloudkitchen.Shelf;
+import cloudkitchen.cooking.Shelf;
 
 public class HotShelf extends Shelf {
     public HotShelf(final String temperature) {

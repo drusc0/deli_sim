@@ -1,6 +1,6 @@
-package cloudkitchen.impl;
+package cloudkitchen.delivery.impl;
 
-import cloudkitchen.Kitchen;
+import cloudkitchen.cooking.Kitchen;
 import model.Order;
 
 import java.util.concurrent.Callable;

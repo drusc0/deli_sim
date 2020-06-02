@@ -1,7 +1,6 @@
-package cloudkitchen;
+package cloudkitchen.delivery;
 
-import cloudkitchen.Kitchen;
-import com.google.common.annotations.VisibleForTesting;
+import cloudkitchen.cooking.Kitchen;
 import lombok.AllArgsConstructor;
 import model.Order;
 

@@ -1,8 +1,7 @@
-package cloudkitchen;
+package cloudkitchen.cooking;
 
-import cloudkitchen.impl.HotShelf;
+import cloudkitchen.cooking.impl.HotShelf;
 import model.Order;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -14,7 +13,6 @@ import java.util.Optional;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ShelfTest {

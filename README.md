@@ -32,3 +32,6 @@ java -jar <path_to_the_project>/build/libs/delivery_sim.jar
 
 In case you need to make changes to the configuration, there are variables in `resources/configuration.json` that are 
 used to make to make changes in the code dynamic without the need to recompile.
+
+#### Running Tests
+`gradle cleanTest test`

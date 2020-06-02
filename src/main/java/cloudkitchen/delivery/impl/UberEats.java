@@ -1,7 +1,7 @@
-package cloudkitchen.impl;
+package cloudkitchen.delivery.impl;
 
-import cloudkitchen.Kitchen;
-import cloudkitchen.Courier;
+import cloudkitchen.cooking.Kitchen;
+import cloudkitchen.delivery.Courier;
 import cloudkitchen.constants.DeliverySimConstants;
 import model.Order;
 

@@ -1,4 +1,4 @@
-package cloudkitchen;
+package cloudkitchen.cooking;
 
 import com.google.common.annotations.VisibleForTesting;
 import lombok.Getter;

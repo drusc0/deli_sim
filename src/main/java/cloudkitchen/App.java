@@ -1,9 +1,13 @@
 package src.main.java.cloudkitchen;
 
-import cloudkitchen.Kitchen;
+import cloudkitchen.cooking.Kitchen;
 import cloudkitchen.constants.DeliverySimConstants;
-import cloudkitchen.Courier;
-import cloudkitchen.impl.*;
+import cloudkitchen.cooking.impl.ColdShelf;
+import cloudkitchen.cooking.impl.FrozenShelf;
+import cloudkitchen.cooking.impl.HotShelf;
+import cloudkitchen.cooking.impl.OverflowShelf;
+import cloudkitchen.delivery.Courier;
+import cloudkitchen.delivery.impl.*;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

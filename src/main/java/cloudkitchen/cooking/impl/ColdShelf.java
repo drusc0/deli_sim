@@ -1,6 +1,6 @@
-package cloudkitchen.impl;
+package cloudkitchen.cooking.impl;
 
-import cloudkitchen.Shelf;
+import cloudkitchen.cooking.Shelf;
 
 public class ColdShelf extends Shelf {
     public ColdShelf(final String temperature) {

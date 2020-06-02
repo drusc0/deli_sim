@@ -1,4 +1,4 @@
-package cloudkitchen;
+package cloudkitchen.cooking;
 
 import cloudkitchen.constants.DeliverySimConstants;
 import com.google.common.annotations.VisibleForTesting;
