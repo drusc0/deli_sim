@@ -46,6 +46,8 @@ public class Kitchen {
             // attempt in the overflow shelf
             if (!shelfMap.get("overflow").fetchOrder(order)) {
                 System.out.println("Order has been thrown away. Waiting on new order");
+//                create the order with items in parameter
+//                submit to kitchen (let kitchen handle the location of the order item)
             } else {
                 System.out.println("Found order in overflow shelf");
             }
@@ -80,9 +82,21 @@ public class Kitchen {
     void stackInShelf(final Order order) {
         Optional<Order> orderOptional = shelfMap.get(order.getTemp()).stackOrder(order);
         orderOptional.ifPresent(ord -> {
-            ord.setTemp("overflow");
-            shelfMap.get(ord.getTemp()).stackOrder(ord);
+            shelfMap.get("overflow").stackOrder(ord);
         });
+
+//        iterate over items in overflow shel
+//        1 attempt moving item back to original shelf
+//        2 if not possible restack in overflow
+        List<Order> orderList = shelfMap.get("overflow").getAllOrderInShelf();
+        orderList.forEach(o -> {
+            String temp = order.getTemp();
+            Optional<Order> x = shelfMap.get(temp).stackOrder(o);
+            x.ifPresent(y -> {
+                shelfMap.get("overflow").stackOrder(y);
+            });
+        });
+
 
         System.out.println("Setting order: " + order.getName() + " in " +
                 order.getTemp() + " shelf.");

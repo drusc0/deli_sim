@@ -6,6 +6,7 @@ import lombok.Data;
 import model.Order;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Data
 public abstract class Shelf {
@@ -60,6 +61,15 @@ public abstract class Shelf {
     synchronized public boolean fetchOrder(final Order order) {
         checkOrderValues();
         return priorityQueue.remove(order);
+    }
+
+    public List<Order> getAllOrderInShelf() {
+        List<Order> toRet = new ArrayList<Order>();
+        while (!this.priorityQueue.isEmpty()) {
+            toRet.add(this.priorityQueue.poll());
+        }
+
+        return toRet;
     }
 
     /**

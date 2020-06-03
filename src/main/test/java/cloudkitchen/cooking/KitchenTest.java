@@ -13,6 +13,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.stubbing.Answer;
 
 import java.time.Instant;
+import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
@@ -23,6 +24,23 @@ public class KitchenTest {
             .id("1")
             .temp("test")
             .name("Icecream")
+            .shelfLife(5)
+            .decayRate((float) 0.5)
+            .timeStampInSec(Instant.now().getEpochSecond())
+            .build();
+
+    private static final Order ORDER_TEST_2 = Order.builder()
+            .id("2")
+            .temp("test")
+            .name("Banana Split")
+            .shelfLife(5)
+            .decayRate((float) 0.5)
+            .timeStampInSec(Instant.now().getEpochSecond())
+            .build();
+    private static final Order ORDER_TEST_3 = Order.builder()
+            .id("3")
+            .temp("test")
+            .name("Sundae")
             .shelfLife(5)
             .decayRate((float) 0.5)
             .timeStampInSec(Instant.now().getEpochSecond())
@@ -65,5 +83,15 @@ public class KitchenTest {
         Order response = kitchen.pickUpOrder(ORDER_TEST);
         verify(shelf1, times(1)).fetchOrder(any(Order.class));
         verify(shelf2, atMost(1)).fetchOrder(any(Order.class));
+    }
+
+    @Test
+    public void test_reStacking() {
+        when(shelf1.stackOrder(any(Order.class))).thenReturn(Optional.of(ORDER_TEST_2));
+        when(shelf2.getAllOrderInShelf()).thenReturn(ImmutableList.of(ORDER_TEST_3, ORDER_TEST));
+
+        kitchen.stackInShelf(ORDER_TEST);
+        verify(shelf2, times(1)).getAllOrderInShelf();
+        verify(shelf1, atMost(3)).stackOrder(any(Order.class));
     }
 }
